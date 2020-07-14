@@ -1,0 +1,65 @@
+
+site_name: 'Embedded System - Cook Book'
+
+theme:
+  feature:
+    tabs: true
+  name: 'material'
+  palette:
+      primary: 'amber'
+      accent: 'pink'
+
+# Copyright
+copyright: 'Copyright &copy; 2019 / Prof. Rafael Corsi / rafael.corsi@insper.edu.br'
+
+# repo
+docs_dir: docs-src
+site_dir: docs
+
+repo_name: 'Embedded Firmware CookBook'
+repo_url: 'https://github.com/rafaelcorsi/Embedded-Firmware-CookBook'
+edit_uri: 'https://github.com/rafaelcorsi/Embedded-Firmware-CookBook/edit/master/docs-src/'
+site_url: 'https://rafaelcorsi.github.io/Embedded-Firmware-CookBook/'
+ 
+nav:
+  - Home: index.md
+
+  - Misc:
+      - 'misc/digital-input-pooling.md'
+      - 'misc/digital-input-irq.md'
+      - 'misc/digital-output.md'
+
+#  - Sensores:
+
+# Extensions
+markdown_extensions:
+  - markdown.extensions.attr_list
+  - markdown.extensions.admonition
+  - markdown.extensions.codehilite:
+      guess_lang: false
+  - markdown.extensions.def_list
+  - markdown.extensions.footnotes
+  - markdown.extensions.meta
+  - markdown.extensions.toc:
+      permalink: true
+  - pymdownx.arithmatex
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:pymdownx.emoji.to_svg
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.magiclink:
+      repo_url_shorthand: true
+      user: squidfunk
+      repo: mkdocs-material
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences
+  - pymdownx.tabbed
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde

@@ -17,7 +17,7 @@
     
     
       
-        <title>Digital I/O out - Embedded System - Cook Book</title>
+        <title>Digital Output - Embedded System - Cook Book</title>
       
     
     
@@ -28,7 +28,7 @@
       
         
         
-        <meta name="theme-color" content="">
+        <meta name="theme-color" content="#ffc107">
       
     
     
@@ -50,7 +50,7 @@
   
     
     
-    <body dir="ltr" data-md-color-primary="white" data-md-color-accent="pink">
+    <body dir="ltr" data-md-color-primary="amber" data-md-color-accent="pink">
   
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -58,7 +58,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#digital-io-out" class="md-skip">
+        <a href="#digital-output" class="md-skip">
           Skip to content
         </a>
       
@@ -86,7 +86,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              Digital I/O out
+              Digital Output
             
           </span>
         </div>
@@ -196,12 +196,10 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
     
     <label class="md-nav__link" for="nav-2">
       Misc
@@ -225,7 +223,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../digital_in/" title="Digital Input - Pooling" class="md-nav__link">
+    <a href="../digital-input-pooling/" title="Digital Input - Pooling" class="md-nav__link">
       Digital Input - Pooling
     </a>
   </li>
@@ -235,20 +233,23 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-    <a href="./" title="Digital I/O out" class="md-nav__link md-nav__link--active">
-      Digital I/O out
+  <li class="md-nav__item">
+    <a href="../digital-input-irq/" title="Digital Input - IRQ" class="md-nav__link">
+      Digital Input - IRQ
     </a>
-    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../digital-output/" title="Digital Output" class="md-nav__link">
+      Digital Output
+    </a>
   </li>
 
         
@@ -274,6 +275,43 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#hardware" class="md-nav__link">
+    Hardware
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#firmware" class="md-nav__link">
+    Firmware
+  </a>
+  
+    <nav class="md-nav" aria-label="Firmware">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -292,40 +330,38 @@
                   
                 
                 
-                <h1 id="digital-io-out">Digital I/O out<a class="headerlink" href="#digital-io-out" title="Permanent link">&para;</a></h1>
-<p>Digital input output (I/O) is the most simple data to <strong>control</strong> the external world. This signal can assume only
-two states: On/OFF, <code>1</code>/<code>0</code>, <code>High</code>/ <code>Low</code>.</p>
-<div class="admonition tip">
+                <h1 id="digital-output">Digital Output<a class="headerlink" href="#digital-output" title="Permanent link">&para;</a></h1>
+<p>Digital output is the most simple way to <strong>control</strong> the external world. This signal can assume only two states: On/OFF, <code>1</code>/<code>0</code>, <code>High</code>/ <code>Low</code>.</p>
+<div class="admonition info">
 <p class="admonition-title">most common uses</p>
 <ul>
-<li>Buttons (push/ slider/ dip switch)</li>
-<li>Signal pulse (enconder)</li>
+<li>LED</li>
+<li>DC Motor</li>
+<li>Buzzer</li>
 <li>...</li>
 </ul>
 </div>
-<p>The peripheral that allows us to read a digital value is commun named:</p>
-<ul>
-<li>:left_arrow: Parallel I/O - PIO</li>
-<li>General Purpose I/O - GPIO</li>
-</ul>
-<p>Steps to read a digital data:</p>
+<p>Normally this peripherals controls more than one pin and each microcontroller has several instances of the same peripheral, to control more pins. Each pin can be configured independent. </p>
+<div class="admonition note">
+<p class="admonition-title">Microchip SAM</p>
+<p>Microchip SAM microcontrollers called this as PIO, each instance of the 
+PIO is called PIO <strong>A</strong>, PIO <strong>B</strong>, PIO <strong>C</strong>, ... each PIO can controll up
+to 32 independents pins.</p>
+</div>
+<h2 id="hardware">Hardware<a class="headerlink" href="#hardware" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>This examples shows how to control a LED, but can be apply to others digital componentes.</p>
+</blockquote>
+<h2 id="firmware">Firmware<a class="headerlink" href="#firmware" title="Permanent link">&para;</a></h2>
+<p>Steps to simple control a PIO pin:</p>
 <ol>
-<li>Enable de peripheral</li>
-<li>Configure the Pin as input </li>
-<li>Read the data</li>
+<li>Enable system clock/ board configs.</li>
+<li>Enable the peripheral</li>
+<li>Configure the Pin as output</li>
+<li>Write to pin</li>
 </ol>
-<div class="highlight"><pre><span></span><code><span class="cp">#define pin 13</span>
-<span class="cp">#define pin_pio PIOA</span>
-
-<span class="kt">int</span> <span class="nf">main</span> <span class="p">(</span><span class="kt">void</span><span class="p">){</span>
-
-    <span class="n">pio_enable</span> <span class="p">(</span><span class="n">pin_pio</span><span class="p">);</span>
-    <span class="n">pio_set_input</span> <span class="p">(</span><span class="n">pin_pio</span><span class="p">,</span> <span class="n">pin</span><span class="p">);</span>
-
-    <span class="k">while</span> <span class="p">(</span><span class="mi">1</span><span class="p">){</span>
-        <span class="n">pio_get</span> <span class="p">(</span><span class="n">pin_pio</span><span class="p">,</span> <span class="n">pin</span><span class="p">);</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+<h3 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>
 </code></pre></div>
                 
               
@@ -341,27 +377,6 @@ two states: On/OFF, <code>1</code>/<code>0</code>, <code>High</code>/ <code>Low<
       
         
 <footer class="md-footer">
-  
-    <div class="md-footer-nav">
-      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
-        
-          <a href="../digital_in/" title="Digital Input - Pooling" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
-            <div class="md-footer-nav__button md-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
-            </div>
-            <div class="md-footer-nav__title">
-              <div class="md-ellipsis">
-                <span class="md-footer-nav__direction">
-                  Previous
-                </span>
-                Digital Input - Pooling
-              </div>
-            </div>
-          </a>
-        
-        
-      </nav>
-    </div>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">

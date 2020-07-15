@@ -9,7 +9,7 @@
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
       
-        <link rel="canonical" href="https://rafaelcorsi.github.io/Embedded-Firmware-CookBook/misc/digital_in/">
+        <link rel="canonical" href="https://rafaelcorsi.github.io/Embedded-Firmware-CookBook/misc/digital-output/">
       
       
       <link rel="shortcut icon" href="../../assets/images/favicon.png">
@@ -17,7 +17,7 @@
     
     
       
-        <title>Digital Input - Pooling - Embedded System - Cook Book</title>
+        <title>Digital Output - Embedded System - Cook Book</title>
       
     
     
@@ -28,7 +28,7 @@
       
         
         
-        <meta name="theme-color" content="">
+        <meta name="theme-color" content="#ffc107">
       
     
     
@@ -50,7 +50,7 @@
   
     
     
-    <body dir="ltr" data-md-color-primary="white" data-md-color-accent="pink">
+    <body dir="ltr" data-md-color-primary="amber" data-md-color-accent="pink">
   
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -58,7 +58,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#digital-input-pooling" class="md-skip">
+        <a href="#digital-output" class="md-skip">
           Skip to content
         </a>
       
@@ -86,7 +86,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              Digital Input - Pooling
+              Digital Output
             
           </span>
         </div>
@@ -223,6 +223,30 @@
           
           
 
+
+  <li class="md-nav__item">
+    <a href="../digital-input-pooling/" title="Digital Input - Pooling" class="md-nav__link">
+      Digital Input - Pooling
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../digital-input-irq/" title="Digital Input - IRQ" class="md-nav__link">
+      Digital Input - IRQ
+    </a>
+  </li>
+
+        
+          
+          
+          
+
   
 
 
@@ -234,14 +258,14 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        Digital Input - Pooling
+        Digital Output
         <span class="md-nav__icon md-icon">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3,9H17V7H3V9M3,13H17V11H3V13M3,17H17V15H3V17M19,17H21V15H19V17M19,7V9H21V7H19M19,13H21V11H19V13Z" /></svg>
         </span>
       </label>
     
-    <a href="./" title="Digital Input - Pooling" class="md-nav__link md-nav__link--active">
-      Digital Input - Pooling
+    <a href="./" title="Digital Output" class="md-nav__link md-nav__link--active">
+      Digital Output
     </a>
     
       
@@ -271,12 +295,18 @@
     Firmware
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#example-for-internal-pull-up" class="md-nav__link">
-    Example for internal Pull-Up
+    <nav class="md-nav" aria-label="Firmware">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    Example
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -284,18 +314,6 @@
   
 </nav>
     
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../digital_out/" title="Digital I/O out" class="md-nav__link">
-      Digital I/O out
-    </a>
   </li>
 
         
@@ -341,12 +359,18 @@
     Firmware
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#example-for-internal-pull-up" class="md-nav__link">
-    Example for internal Pull-Up
+    <nav class="md-nav" aria-label="Firmware">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    Example
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -362,7 +386,7 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/rafaelcorsi/Embedded-Firmware-CookBook/edit/master/docs-src/misc/digital_in.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/rafaelcorsi/Embedded-Firmware-CookBook/edit/master/docs-src/misc/digital-output.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.12,5.12L18.87,8.87M3,17.25V21H6.75L17.81,9.93L14.06,6.18L3,17.25Z" /></svg>
                   </a>
                 
@@ -370,13 +394,14 @@
                   
                 
                 
-                <h1 id="digital-input-pooling">Digital Input - Pooling<a class="headerlink" href="#digital-input-pooling" title="Permanent link">&para;</a></h1>
-<p>Digital input output (I/O) is the most simple way to <strong>read</strong> from external world. This signal can assume only two states: On/OFF, <code>1</code>/<code>0</code>, <code>High</code>/ <code>Low</code>.</p>
-<div class="admonition tip">
+                <h1 id="digital-output">Digital Output<a class="headerlink" href="#digital-output" title="Permanent link">&para;</a></h1>
+<p>Digital output is the most simple way to <strong>control</strong> the external world. This signal can assume only two states: On/OFF, <code>1</code>/<code>0</code>, <code>High</code>/ <code>Low</code>.</p>
+<div class="admonition info">
 <p class="admonition-title">most common uses</p>
 <ul>
-<li>Buttons (push/ slider/ dip switch)</li>
-<li>Signal pulse (encoder)</li>
+<li>LED</li>
+<li>DC Motor</li>
+<li>Buzzer</li>
 <li>...</li>
 </ul>
 </div>
@@ -385,75 +410,63 @@
 <li><img alt="➡️" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/svg/27a1.svg" title=":arrow_right:" /> Parallel I/O - PIO</li>
 <li>General-Purpose I/O - GPIO</li>
 </ul>
-<p>Normally this peripherals controls more than one pin and each microcontroller has several instances of the same peripheral, to control more pins. Each pin can be configured independent. </p>
 <div class="admonition note">
-<p class="admonition-title">Microchip SAM</p>
-<p>Microchip SAM microcontrollers called this as PIO, each instance of the 
-PIO is called PIO <strong>A</strong>, PIO <strong>B</strong>, PIO <strong>C</strong>, ... each PIO can controll up
-to 32 independents pins.</p>
+<p class="admonition-title">Peripheral</p>
+<p>Read more about this peripheral on <a href="">Peripheral-PIO</a>.</p>
 </div>
 <h2 id="hardware">Hardware<a class="headerlink" href="#hardware" title="Permanent link">&para;</a></h2>
-<p>There is two way to use a button: with Pull-Up or Pull-Down. Most peripherals allow to enable a internal Pull-UP/Pull-Down resistor, with no need to connet resistores to the uC.</p>
-<div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Internal Pull-Up</label><div class="tabbed-content">
-<p><img alt="" src="/misc/figs/digital-input/internal-pullup.svg.png" width="350" /></p>
-<p><img alt="⭐️" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/svg/2b50.svg" title=":star:" /> Best solution (reduces the risk of burning, uses fewer components)</p>
-<p>Setup:</p>
+<blockquote>
+<p>This examples shows how to control a LED, but can be apply to others digital components.</p>
+</blockquote>
+<p>This example shows on how to control a LED with a microcontroller, the series resistor limits the electric current.</p>
+<div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Drive in</label><div class="tabbed-content">
+<p><img alt="" src="/misc/figs/digital-output/digital-output-vcc.png" width="350" /></p>
+<p><img alt="⭐️" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/svg/2b50.svg" title=":star:" /> Best solution (reduces the risk of burning as normally input accept electric current is higher than output current)</p>
 <ul>
-<li>Connect button to pin and to gnd</li>
-<li>Need to configure <strong>Pull-Up</strong> on the peripheral.</li>
-<li><strong>No need to external resistor</strong></li>
+<li>Connect LED to resistor to VCC</li>
 </ul>
-<p>Read <code>1</code> when not pressed and <code>0</code> when pressed.</p>
+<p>Write <code>0</code> to pin light up LED, <code>1</code> turn off.</p>
 </div>
-<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">External Pull-Up</label><div class="tabbed-content">
-<p><img alt="" src="/misc/figs/digital-input/external-pullup.svg.png" width="350" /></p>
-<p>Setup:</p>
+<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">Drive out</label><div class="tabbed-content">
+<p><img alt="" src="/misc/figs/digital-output/digital-output-gnd.png" width="350" /></p>
+</div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
 <ul>
-<li>Connect button to pin and to gnd</li>
-<li>Add a parallel resistor to VCC <ul>
-<li>must respect max pin voltage</li>
+<li>You must respect the VCC of your system.</li>
+<li>You must check the resistor value to your system.</li>
 </ul>
-</li>
-</ul>
-<p>Read <code>1</code> when not pressed and <code>0</code> when pressed.</p>
-</div>
 </div>
 <h2 id="firmware">Firmware<a class="headerlink" href="#firmware" title="Permanent link">&para;</a></h2>
-<p>Steps to read a simple digital data from PIO pin for the </p>
+<p>Steps to simple control a PIO pin:</p>
 <ol>
 <li>Enable system clock/ board configs.</li>
 <li>Enable the peripheral</li>
-<li>Configure on the peripheral:<ul>
-<li>Pin as input</li>
-<li>As need: Pull-Up/ Pull-Down</li>
-</ul>
-</li>
-<li>Read the data</li>
+<li>Configure the Pin as output</li>
+<li>Control pin (High/ Low)</li>
 </ol>
-<h2 id="example-for-internal-pull-up">Example for internal Pull-Up<a class="headerlink" href="#example-for-internal-pull-up" title="Permanent link">&para;</a></h2>
-<p>Firmware example for SAME70, with internal Pull-Up</p>
-<div class="highlight"><pre><span></span><code><span class="cp">#define BUT_PIO      PIOA</span>
-<span class="cp">#define BUT_PIO_ID   ID_PIOA</span>
-<span class="cp">#define BUT_IDX      11</span>
-<span class="cp">#define BUT_IDX_MASK (1 &lt;&lt; BUT_IDX)</span>
-<span class="cp">#define BUT_SETTINGS PIO_PULLUP</span>
+<h3 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="cp">#define LED_PIO      PIOC</span>
+<span class="cp">#define LED_PIO_ID   ID_PIOC</span>
+<span class="cp">#define LED_IDX      8</span>
+<span class="cp">#define LED_IDX_MASK (1 &lt;&lt; LED_IDX)</span>
+<span class="cp">#define LED_CONFIG PIO_DEFAULT</span>
 
 <span class="kt">int</span> <span class="nf">main</span> <span class="p">(</span><span class="kt">void</span><span class="p">){</span>
-    <span class="c1">// init system </span>
     <span class="n">sysclk_init</span><span class="p">();</span>
 
-    <span class="c1">// enable and configure peripheral</span>
-    <span class="n">pmc_enable_periph_clk</span> <span class="p">(</span><span class="n">BUT_PIO_ID</span><span class="p">);</span>
-    <span class="n">pio_configure</span> <span class="p">(</span><span class="n">BUT_PIO</span><span class="p">,</span> <span class="n">PIO_INPUT</span><span class="p">,</span> <span class="n">BUT_IDX_MASK</span><span class="p">,</span> <span class="n">BUT_SETTINGS</span><span class="p">);</span>
+    <span class="n">pmc_enable_periph_clk</span><span class="p">(</span><span class="n">LED_PIO_ID</span><span class="p">);</span>
 
     <span class="k">while</span> <span class="p">(</span><span class="mi">1</span><span class="p">){</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">pio_get</span> <span class="p">(</span><span class="n">BUT_PIO</span><span class="p">,</span> <span class="n">PIO_INPUT</span><span class="p">,</span> <span class="n">BUT_IDX_MASK</span><span class="p">)){</span>
-            <span class="c1">// button not pressed</span>
-        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-            <span class="c1">// button pressed</span>
-        <span class="p">}</span>
+        <span class="c1">// drive pin low - turns on led</span>
+        <span class="n">pio_clear</span><span class="p">(</span><span class="n">LED_PIO</span><span class="p">,</span> <span class="n">LED_IDX_MASK</span><span class="p">);</span>  
+        <span class="n">delay_ms</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>  
+
+        <span class="c1">// drive pin high - turns off led </span>
+        <span class="n">pio_set</span><span class="p">(</span><span class="n">LED_PIO</span><span class="p">,</span> <span class="n">LED_IDX_MASK</span><span class="p">);</span>  
+        <span class="n">delay_ms</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>                      
     <span class="p">}</span>
-<span class="p">}</span>
 </code></pre></div>
                 
               
@@ -473,7 +486,7 @@ to 32 independents pins.</p>
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../.." title="Home" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../digital-input-irq/" title="Digital Input - IRQ" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
             </div>
@@ -482,25 +495,11 @@ to 32 independents pins.</p>
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Home
+                Digital Input - IRQ
               </div>
             </div>
           </a>
         
-        
-          <a href="../digital_out/" title="Digital I/O out" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-footer-nav__title">
-              <div class="md-ellipsis">
-                <span class="md-footer-nav__direction">
-                  Next
-                </span>
-                Digital I/O out
-              </div>
-            </div>
-            <div class="md-footer-nav__button md-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z" /></svg>
-            </div>
-          </a>
         
       </nav>
     </div>

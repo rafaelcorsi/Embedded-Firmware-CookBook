@@ -421,8 +421,8 @@ to 32 independents pins.</p>
 <p>This examples shows how to read a button, but can be apply to others digital componentes.</p>
 </blockquote>
 <p>There is two way to use a button: with Pull-Up or Pull-Down. Most peripherals allow to enable a internal Pull-UP/Pull-Down resistor, with no need to connet resistores to the uC.</p>
-<div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Internal Pull-Up</label><div class="tabbed-content">
-<p><img alt="" src="/misc/figs/digital-input/internal-pullup.svg.png" width="350" /></p>
+<div class="tabbed-set" data-tabs="1:4"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Internal Pull-Up</label><div class="tabbed-content">
+<p><img alt="" src="../figs/digital-input/internal-pullup.svg.png" width="350" /></p>
 <p><img alt="⭐️" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/svg/2b50.svg" title=":star:" /> Best solution (reduces the risk of burning, uses fewer components)</p>
 <p>Setup:</p>
 <ul>
@@ -433,7 +433,7 @@ to 32 independents pins.</p>
 <p>Read <code>1</code> when not pressed and <code>0</code> when pressed.</p>
 </div>
 <input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">External Pull-Up</label><div class="tabbed-content">
-<p><img alt="" src="/misc/figs/digital-input/external-pullup.svg.png" width="350" /></p>
+<p><img alt="" src="../figs/digital-input/external-pullup.svg.png" width="350" /></p>
 <p>Setup:</p>
 <ul>
 <li>Connect button to pin and to gnd</li>
@@ -443,8 +443,23 @@ to 32 independents pins.</p>
 </li>
 </ul>
 <p>Read <code>1</code> when not pressed and <code>0</code> when pressed.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<ul>
+<li>You must respect the VCC of your system.</li>
+</ul>
 </div>
 </div>
+<input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><label for="__tabbed_1_3">Internal Pull-Down</label><div class="tabbed-content">
+<p>TODO</p>
+<p>Read <code>0</code> when not pressed and <code>1</code> when pressed.</p>
+</div>
+<input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><label for="__tabbed_1_4">External Pull-Down</label><div class="tabbed-content">
+<p>TODO</p>
+<p>Read <code>0</code> when not pressed and <code>1</code> when pressed.</p>
+</div>
+</div>
+<hr />
 <h2 id="firmware">Firmware<a class="headerlink" href="#firmware" title="Permanent link">&para;</a></h2>
 <p>Steps to read a simple digital data:</p>
 <ol>
@@ -458,7 +473,7 @@ to 32 independents pins.</p>
 <li>Read the data</li>
 </ol>
 <h3 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h3>
-<p>Firmware example for SAME70, with internal Pull-Up</p>
+<p>Firmware example for SAME70, with internal Pull-Up to read a press button connected to the pin <code>PA11</code>.</p>
 <div class="highlight"><pre><span></span><code><span class="cp">#define BUT_PIO      PIOA</span>
 <span class="cp">#define BUT_PIO_ID   ID_PIOA</span>
 <span class="cp">#define BUT_IDX      11</span>

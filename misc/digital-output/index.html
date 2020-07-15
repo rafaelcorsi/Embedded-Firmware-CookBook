@@ -420,7 +420,7 @@
 </blockquote>
 <p>This example shows on how to control a LED with a microcontroller, the series resistor limits the electric current.</p>
 <div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Drive in</label><div class="tabbed-content">
-<p><img alt="" src="/misc/figs/digital-output/digital-output-vcc.png" width="350" /></p>
+<p><img alt="" src="../figs/digital-output/digital-output-vcc.png" width="350" /></p>
 <p><img alt="⭐️" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/svg/2b50.svg" title=":star:" /> Best solution (reduces the risk of burning as normally input accept electric current is higher than output current)</p>
 <ul>
 <li>Connect LED to resistor to VCC</li>
@@ -428,7 +428,7 @@
 <p>Write <code>0</code> to pin light up LED, <code>1</code> turn off.</p>
 </div>
 <input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">Drive out</label><div class="tabbed-content">
-<p><img alt="" src="/misc/figs/digital-output/digital-output-gnd.png" width="350" /></p>
+<p><img alt="" src="../figs/digital-output/digital-output-gnd.png" width="350" /></p>
 </div>
 </div>
 <div class="admonition warning">
@@ -438,6 +438,7 @@
 <li>You must check the resistor value to your system.</li>
 </ul>
 </div>
+<hr />
 <h2 id="firmware">Firmware<a class="headerlink" href="#firmware" title="Permanent link">&para;</a></h2>
 <p>Steps to simple control a PIO pin:</p>
 <ol>
@@ -447,6 +448,7 @@
 <li>Control pin (High/ Low)</li>
 </ol>
 <h3 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h3>
+<p>Firmware example for SAME70, drive in to blink an LED connected to the pin `PC8``.</p>
 <div class="highlight"><pre><span></span><code><span class="cp">#define LED_PIO      PIOC</span>
 <span class="cp">#define LED_PIO_ID   ID_PIOC</span>
 <span class="cp">#define LED_IDX      8</span>
@@ -459,11 +461,11 @@
     <span class="n">pmc_enable_periph_clk</span><span class="p">(</span><span class="n">LED_PIO_ID</span><span class="p">);</span>
 
     <span class="k">while</span> <span class="p">(</span><span class="mi">1</span><span class="p">){</span>
-        <span class="c1">// drive pin low - turns on led</span>
+        <span class="c1">// drive pin low - turns led on</span>
         <span class="n">pio_clear</span><span class="p">(</span><span class="n">LED_PIO</span><span class="p">,</span> <span class="n">LED_IDX_MASK</span><span class="p">);</span>  
         <span class="n">delay_ms</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>  
 
-        <span class="c1">// drive pin high - turns off led </span>
+        <span class="c1">// drive pin high - turns led off</span>
         <span class="n">pio_set</span><span class="p">(</span><span class="n">LED_PIO</span><span class="p">,</span> <span class="n">LED_IDX_MASK</span><span class="p">);</span>  
         <span class="n">delay_ms</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>                      
     <span class="p">}</span>

@@ -23,12 +23,6 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.a676eddb.min.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.b302131d.min.css">
-      
-      
-        
-        
-        <meta name="theme-color" content="#ffc107">
       
     
     
@@ -48,9 +42,7 @@
   </head>
   
   
-    
-    
-    <body dir="ltr" data-md-color-primary="amber" data-md-color-accent="pink">
+    <body dir="ltr">
   
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -272,6 +264,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#hardware" class="md-nav__link">
+    Hardware
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#firmware" class="md-nav__link">
     Firmware
   </a>
@@ -279,8 +278,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#example-for-internal-pull-up" class="md-nav__link">
-    Example for internal Pull-Up
+  <a href="#example-code" class="md-nav__link">
+    Example Code
   </a>
   
 </li>
@@ -335,6 +334,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#hardware" class="md-nav__link">
+    Hardware
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#firmware" class="md-nav__link">
     Firmware
   </a>
@@ -342,8 +348,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#example-for-internal-pull-up" class="md-nav__link">
-    Example for internal Pull-Up
+  <a href="#example-code" class="md-nav__link">
+    Example Code
   </a>
   
 </li>
@@ -373,32 +379,51 @@
 <p class="admonition-title">read before</p>
 <p>This complements <a href="/misc/digital-input-pooling/">Digital Input - Pooling</a>. General information and hardware is describe there.</p>
 </div>
-<p>The use of interruption makes the code react to event on the pin (High -&gt; Low/ Low -&gt; High/ High/ Low). The advance</p>
+<p>The use of interruption makes the code react to event on the pin (High -&gt; Low/ Low -&gt; High/ High/ Low). The advantage of using interrupt is:</p>
 <ul>
-<li>avoid losing information</li>
-<li>priorization of events</li>
-<li>entering in low power modes</li>
-<li></li>
+<li>Avoid losing information (pin value change)</li>
+<li>Prioritization of events</li>
+<li>Entering in low power mode</li>
 </ul>
+<p>Ever time an event occurs on the pin, the peripheral sends a signal to NVIC , hardware responsible to handle Interruptions Request (IRQ), and the NVIC acts on the CORE to disrupt the normal code flow and execute a function that is associated to this IRQ, this functions is frequently called: <code>Handler</code> or <code>callbacks</code>. When the function returns, the core goes back to the normal code flow, with no loss of data.</p>
+<blockquote>
+<p>Interruption is a little more complicated than this, please read: ....</p>
+</blockquote>
+<h2 id="hardware">Hardware<a class="headerlink" href="#hardware" title="Permanent link">&para;</a></h2>
+<p>See <a href="/misc/digital-input-pooling/">Digital Input - Pooling</a></p>
 <h2 id="firmware">Firmware<a class="headerlink" href="#firmware" title="Permanent link">&para;</a></h2>
-<p>Steps to read a simple digital data from PIO pin for the </p>
+<p>Steps to enable interruption on digital pin input:</p>
 <ol>
-<li>Enable system clock/ board configs.</li>
+<li>Enable system clock/ board configurations.</li>
 <li>Enable the peripheral</li>
-<li>Configure on the peripheral:<ul>
+<li>Configure the pin on peripheral:<ul>
 <li>Pin as input</li>
-<li>As need: Pull-Up/ Pull-Down</li>
+<li>Pull-Up/ Pull-Down (depends on HW)</li>
+<li>Configure interruption (edge/ level)</li>
+<li>Enable interruption </li>
 </ul>
 </li>
-<li>Read the data</li>
+<li>Configure NVIC:<ul>
+<li>IRQ peripheral priority</li>
+<li>Enable peripheral IRQ</li>
+</ul>
+</li>
+<li>Write a function that will handle the interruption</li>
 </ol>
-<h2 id="example-for-internal-pull-up">Example for internal Pull-Up<a class="headerlink" href="#example-for-internal-pull-up" title="Permanent link">&para;</a></h2>
-<p>Firmware example for SAME70, with internal Pull-Up</p>
+<h2 id="example-code">Example Code<a class="headerlink" href="#example-code" title="Permanent link">&para;</a></h2>
+<div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">SAME70</label><div class="tabbed-content">
+<p>Firmware example for SAME70 with internal Pull-Up and Falling Edge interruption to read a push button connected to the pin <code>PA11</code>.</p>
+<p>Callback function <code>but_callback</code> will be called  every time the button is pressed.</p>
 <div class="highlight"><pre><span></span><code><span class="cp">#define BUT_PIO      PIOA</span>
 <span class="cp">#define BUT_PIO_ID   ID_PIOA</span>
 <span class="cp">#define BUT_IDX      11</span>
 <span class="cp">#define BUT_IDX_MASK (1 &lt;&lt; BUT_IDX)</span>
 <span class="cp">#define BUT_SETTINGS PIO_PULLUP</span>
+
+<span class="c1">// this function is called when button is pressed</span>
+<span class="kt">void</span> <span class="nf">but_callback</span> <span class="p">(</span><span class="kt">void</span><span class="p">){</span>
+
+<span class="p">}</span>
 
 <span class="kt">int</span> <span class="nf">main</span> <span class="p">(</span><span class="kt">void</span><span class="p">){</span>
     <span class="c1">// init system </span>
@@ -408,15 +433,83 @@
     <span class="n">pmc_enable_periph_clk</span> <span class="p">(</span><span class="n">BUT_PRO_ID</span><span class="p">);</span>
     <span class="n">pio_configure</span> <span class="p">(</span><span class="n">BUT_PIO</span><span class="p">,</span> <span class="n">PIO_INPUT</span><span class="p">,</span> <span class="n">BUT_IDX_MASK</span><span class="p">,</span> <span class="n">BUT_SETTINGS</span><span class="p">);</span>
 
+    <span class="c1">// configure interruption on pin with falling edge</span>
+    <span class="n">pio_handler_set</span> <span class="p">(</span><span class="n">BUT_PIO</span><span class="p">,</span> <span class="n">BUT_PIO_ID</span><span class="p">,</span> <span class="n">BUT_IDX_MASK</span><span class="p">,</span> 
+                    <span class="n">PIO_IT_FALL_EDGE</span><span class="p">,</span> <span class="n">but_callback</span><span class="p">);</span>
+
+    <span class="c1">// enable peripheral interruption</span>
+    <span class="n">pio_enable_interrupt</span> <span class="p">(</span><span class="n">BUT_PIO</span><span class="p">,</span> <span class="n">BUT_IDX_MASK</span><span class="p">);</span>
+
+    <span class="c1">// set peripheral priority and enable IRQ on NVIC</span>
+    <span class="n">NVIC_SetPriority</span> <span class="p">(</span><span class="n">BUT_PIO_ID</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span> 
+    <span class="n">NVIC_EnableIRQ</span> <span class="p">(</span><span class="n">BUT_PIO_ID</span><span class="p">);</span>
+
     <span class="k">while</span> <span class="p">(</span><span class="mi">1</span><span class="p">){</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">pio_get</span> <span class="p">(</span><span class="n">BUT_PIO</span><span class="p">,</span> <span class="n">PIO_INPUT</span><span class="p">,</span> <span class="n">BUT_IDX_MASK</span><span class="p">)){</span>
-            <span class="c1">// button not pressed</span>
-        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-            <span class="c1">// button pressed</span>
-        <span class="p">}</span>
+        <span class="c1">// note that there is no code on while!</span>
+        <span class="c1">// but if the button is pressed, the </span>
+        <span class="c1">// function but_callback will be called by </span>
+        <span class="c1">// hardware!</span>
+
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
+
+<div class="admonition info">
+<p class="admonition-title">Multiple events</p>
+<p>It is possible to react to multiple events on the pin, example: Falling edge and rising edge, this would create an interruption when the button is pressed and released.</p>
+<p>This interruption would leave to the same callback function <code>but_callback</code>, there is two way to discovery by what event you got in the function:</p>
+<ul>
+<li>
+<p>read the actual pin value, if <code>1</code> you get on the function by a rising edge, if <code>0</code> you get by a falling edge.</p>
+</li>
+<li>
+<p>some peripherals can inform by a status register what triggered the IRQ. </p>
+</li>
+</ul>
+<p>On this code:</p>
+<div class="highlight"><pre><span></span><code>void but_callback (void){
+<span class="gi">+    if (pio_get (BUT_PIO, PIO_INPUT, BUT_IDX_MASK)){</span>
+<span class="gi">+        // rising edge</span>
+<span class="gi">+    } else {</span>
+<span class="gi">+        // falling edge</span>
+<span class="gi">+    }</span>
+}
+
+
+// configure interruption on pin with falling edge
+pio_handler_set (BUT_PIO, BUT_PIO_ID, BUT_IDX_MASK, 
+<span class="gd">-                PIO_IT_FALL_EDGE, but_callback);</span>
+<span class="gi">+                PIO_IT_FALL_EDGE | PIO_IT_RISE_EDGE, but_callback);</span>
+</code></pre></div>
+
+</div>
+</div>
+<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">Arduino</label><div class="tabbed-content">
+<p>Firmware example for Arduino with internal Pull-Up and Falling Edge interruption to read a push button connected to the pin <code>7</code>.</p>
+<p>Callback function <code>but_callback</code> will be called  every time the button is pressed.</p>
+<div class="highlight"><pre><span></span><code><span class="k">const</span> <span class="n">byte</span> <span class="n">interruptPin</span> <span class="o">=</span> <span class="mi">7</span><span class="p">;</span>
+<span class="k">volatile</span> <span class="n">byte</span> <span class="n">state</span> <span class="o">=</span> <span class="n">LOW</span><span class="p">;</span>
+
+<span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">pinMode</span><span class="p">(</span><span class="n">interruptPin</span><span class="p">,</span> <span class="n">INPUT_PULLUP</span><span class="p">);</span>
+    <span class="n">attachInterrupt</span><span class="p">(</span><span class="n">digitalPinToInterrupt</span><span class="p">(</span><span class="n">interruptPin</span><span class="p">),</span> <span class="n">but_callback</span><span class="p">,</span> <span class="n">CHANGE</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">loop</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// note that there is no code on loop!</span>
+    <span class="c1">// but if the button is pressed, the </span>
+    <span class="c1">// function but_callback will be called by </span>
+    <span class="c1">// hardware!</span>
+<span class="p">}</span>
+
+<span class="c1">// this function is called when button is pressed</span>
+<span class="kt">void</span> <span class="nf">but_callback</span> <span class="p">(</span><span class="kt">void</span><span class="p">){</span>
+
+<span class="p">}</span>
+</code></pre></div>
+
+</div>
+</div>
                 
               
               

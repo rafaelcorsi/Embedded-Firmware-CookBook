@@ -59,8 +59,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="2.8"
-     inkscape:cx="473.30032"
-     inkscape:cy="583.81307"
+     inkscape:cx="383.83603"
+     inkscape:cy="580.95593"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -131,7 +131,9 @@
            y="193.17934" /></flowRegion><flowPara
          id="flowPara2372" /></flowRoot>    <g
        id="g1234"
-       transform="translate(0,16.819941)">
+       transform="translate(0,16.819941)"
+       inkscape:export-xdpi="303"
+       inkscape:export-ydpi="303">
       <path
          inkscape:connector-curvature="0"
          id="path3216-7-7-7"
@@ -438,7 +440,9 @@
     <g
        style="display:inline"
        id="g3151"
-       transform="translate(-100.47893,27.889957)">
+       transform="translate(-100.47893,27.889957)"
+       inkscape:export-xdpi="303"
+       inkscape:export-ydpi="303">
       <g
          transform="matrix(0.36329603,0,0,0.36329603,145.78869,98.454467)"
          id="g5125-6"

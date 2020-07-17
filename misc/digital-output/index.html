@@ -23,12 +23,6 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.a676eddb.min.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.b302131d.min.css">
-      
-      
-        
-        
-        <meta name="theme-color" content="#ffc107">
       
     
     
@@ -48,9 +42,7 @@
   </head>
   
   
-    
-    
-    <body dir="ltr" data-md-color-primary="amber" data-md-color-accent="pink">
+    <body dir="ltr">
   
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -299,8 +291,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#example" class="md-nav__link">
-    Example
+  <a href="#example-code" class="md-nav__link">
+    Example Code
   </a>
   
 </li>
@@ -363,8 +355,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#example" class="md-nav__link">
-    Example
+  <a href="#example-code" class="md-nav__link">
+    Example Code
   </a>
   
 </li>
@@ -447,8 +439,9 @@
 <li>Configure the Pin as output</li>
 <li>Control pin (High/ Low)</li>
 </ol>
-<h3 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h3>
-<p>Firmware example for SAME70, drive in to blink an LED connected to the pin `PC8``.</p>
+<h3 id="example-code">Example Code<a class="headerlink" href="#example-code" title="Permanent link">&para;</a></h3>
+<div class="tabbed-set" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">Microchip SAME70</label><div class="tabbed-content">
+<p>Example for SAME70 blink an LED with drive in connection on pin `PC8``.</p>
 <div class="highlight"><pre><span></span><code><span class="cp">#define LED_PIO      PIOC</span>
 <span class="cp">#define LED_PIO_ID   ID_PIOC</span>
 <span class="cp">#define LED_IDX      8</span>
@@ -458,18 +451,44 @@
 <span class="kt">int</span> <span class="nf">main</span> <span class="p">(</span><span class="kt">void</span><span class="p">){</span>
     <span class="n">sysclk_init</span><span class="p">();</span>
 
+    <span class="c1">// initialize digital pin LED_IDX as an output.</span>
     <span class="n">pmc_enable_periph_clk</span><span class="p">(</span><span class="n">LED_PIO_ID</span><span class="p">);</span>
+    <span class="n">pio_configure</span><span class="p">(</span><span class="n">LED_PIO</span><span class="p">,</span> <span class="n">PIO_OUTPUT_0</span><span class="p">,</span> <span class="n">LED_IDX_MASK</span><span class="p">,</span> <span class="n">PIO_DEFAULT</span><span class="p">);</span>
 
     <span class="k">while</span> <span class="p">(</span><span class="mi">1</span><span class="p">){</span>
         <span class="c1">// drive pin low - turns led on</span>
-        <span class="n">pio_clear</span><span class="p">(</span><span class="n">LED_PIO</span><span class="p">,</span> <span class="n">LED_IDX_MASK</span><span class="p">);</span>  
-        <span class="n">delay_ms</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>  
+        <span class="n">pio_clear</span><span class="p">(</span><span class="n">LED_PIO</span><span class="p">,</span> <span class="n">LED_IDX_MASK</span><span class="p">);</span>
+        <span class="n">delay_ms</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
 
         <span class="c1">// drive pin high - turns led off</span>
-        <span class="n">pio_set</span><span class="p">(</span><span class="n">LED_PIO</span><span class="p">,</span> <span class="n">LED_IDX_MASK</span><span class="p">);</span>  
-        <span class="n">delay_ms</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>                      
+        <span class="n">pio_set</span><span class="p">(</span><span class="n">LED_PIO</span><span class="p">,</span> <span class="n">LED_IDX_MASK</span><span class="p">);</span>
+        <span class="n">delay_ms</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
     <span class="p">}</span>
 </code></pre></div>
+
+</div>
+<input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><label for="__tabbed_2_2">Arduino</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="c1">// pushbutton connected to digital pin 7</span>
+<span class="kt">int</span> <span class="n">LED_PIN</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+
+<span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// initialize digital pin LED_PIN as an output.</span>
+    <span class="n">pinMode</span><span class="p">(</span><span class="n">LED_PIN</span><span class="p">,</span> <span class="n">OUTPUT</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">loop</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// drive pin low - turns led on</span>
+    <span class="n">digitalWrite</span><span class="p">(</span><span class="n">LED_PIN</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span>
+    <span class="n">delay</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
+
+    <span class="c1">// drive pin high - turns led off</span>
+    <span class="n">digitalWrite</span><span class="p">(</span><span class="n">LED_PIN</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span>
+    <span class="n">delay</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+
+</div>
+</div>
                 
               
               

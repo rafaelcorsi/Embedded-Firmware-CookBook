@@ -23,12 +23,6 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.a676eddb.min.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.b302131d.min.css">
-      
-      
-        
-        
-        <meta name="theme-color" content="#ffc107">
       
     
     
@@ -48,9 +42,7 @@
   </head>
   
   
-    
-    
-    <body dir="ltr" data-md-color-primary="amber" data-md-color-accent="pink">
+    <body dir="ltr">
   
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -473,7 +465,8 @@ to 32 independents pins.</p>
 <li>Read the data</li>
 </ol>
 <h3 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h3>
-<p>Firmware example for SAME70, with internal Pull-Up to read a press button connected to the pin <code>PA11</code>.</p>
+<div class="tabbed-set" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">Microchip SAME70</label><div class="tabbed-content">
+<p>Firmware example for SAME70 with internal Pull-Up to read a push button connected to the pin <code>PA11</code>.</p>
 <div class="highlight"><pre><span></span><code><span class="cp">#define BUT_PIO      PIOA</span>
 <span class="cp">#define BUT_PIO_ID   ID_PIOA</span>
 <span class="cp">#define BUT_IDX      11</span>
@@ -497,6 +490,30 @@ to 32 independents pins.</p>
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
+
+</div>
+<input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><label for="__tabbed_2_2">Arduino</label><div class="tabbed-content">
+<p>Example for arduino with internal Pull-Up to read a push button connected to the pin <code>7</code>.</p>
+<p>Ref: <a href="https://www.arduino.cc/en/Reference/DigitalRead&amp;usg=ALkJrhirTmK1">https://www.arduino.cc/en/Reference/DigitalRead&amp;usg=ALkJrhirTmK1</a>...</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// pushbutton connected to digital pin 7</span>
+<span class="kt">int</span> <span class="n">inPin</span> <span class="o">=</span> <span class="mi">7</span><span class="p">;</span>    
+
+<span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// sets the digital pin 7 as input</span>
+    <span class="n">pinMode</span><span class="p">(</span><span class="n">inPin</span><span class="p">,</span> <span class="n">INPUT_PULLUP</span><span class="p">);</span>    
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">loop</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">digitalRead</span><span class="p">(</span><span class="n">inPin</span><span class="p">)){</span>
+        <span class="c1">// button not pressed</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="c1">// button pressed</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+</div>
+</div>
                 
               
               

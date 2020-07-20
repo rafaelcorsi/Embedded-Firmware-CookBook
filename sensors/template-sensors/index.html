@@ -9,7 +9,7 @@
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
       
-        <link rel="canonical" href="https://rafaelcorsi.github.io/Embedded-Firmware-CookBook/misc/digital_out/">
+        <link rel="canonical" href="https://rafaelcorsi.github.io/Embedded-Firmware-CookBook/sensors/template-sensors/">
       
       
       <link rel="shortcut icon" href="../../assets/images/favicon.png">
@@ -17,7 +17,7 @@
     
     
       
-        <title>Digital Output - Embedded System - Cook Book</title>
+        <title>Sensor name - Embedded System - Cook Book</title>
       
     
     
@@ -50,7 +50,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#digital-output" class="md-skip">
+        <a href="#sensor-name" class="md-skip">
           Skip to content
         </a>
       
@@ -78,7 +78,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              Digital Output
+              Sensor name
             
           </span>
         </div>
@@ -215,7 +215,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../digital-input-pooling/" title="Digital Input - Pooling" class="md-nav__link">
+    <a href="../../misc/digital-input-pooling/" title="Digital Input - Pooling" class="md-nav__link">
       Digital Input - Pooling
     </a>
   </li>
@@ -227,7 +227,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../digital-input-irq/" title="Digital Input - IRQ" class="md-nav__link">
+    <a href="../../misc/digital-input-irq/" title="Digital Input - IRQ" class="md-nav__link">
       Digital Input - IRQ
     </a>
   </li>
@@ -239,8 +239,50 @@
 
 
   <li class="md-nav__item">
-    <a href="../digital-output/" title="Digital Output" class="md-nav__link">
+    <a href="../../misc/digital-output/" title="Digital Output" class="md-nav__link">
       Digital Output
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Sensors
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Sensors" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        Sensors
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../hc-sr04/" title="HC SR04" class="md-nav__link">
+      HC SR04
     </a>
   </li>
 
@@ -291,8 +333,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#example" class="md-nav__link">
-    Example
+  <a href="#code" class="md-nav__link">
+    Code
   </a>
   
 </li>
@@ -314,7 +356,7 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/rafaelcorsi/Embedded-Firmware-CookBook/edit/master/docs-src/misc/digital_out.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/rafaelcorsi/Embedded-Firmware-CookBook/edit/master/docs-src/sensors/template-sensors.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.12,5.12L18.87,8.87M3,17.25V21H6.75L17.81,9.93L14.06,6.18L3,17.25Z" /></svg>
                   </a>
                 
@@ -322,39 +364,98 @@
                   
                 
                 
-                <h1 id="digital-output">Digital Output<a class="headerlink" href="#digital-output" title="Permanent link">&para;</a></h1>
-<p>Digital output is the most simple way to <strong>control</strong> the external world. This signal can assume only two states: On/OFF, <code>1</code>/<code>0</code>, <code>High</code>/ <code>Low</code>.</p>
-<div class="admonition info">
+                <h1 id="sensor-name">Sensor name<a class="headerlink" href="#sensor-name" title="Permanent link">&para;</a></h1>
+<p>Short Explanation</p>
+<div class="admonition tip">
 <p class="admonition-title">most common uses</p>
 <ul>
-<li>LED</li>
-<li>DC Motor</li>
-<li>Buzzer</li>
-<li>...</li>
+<li>Commum uses cases </li>
 </ul>
 </div>
-<p>Normally this peripherals controls more than one pin and each microcontroller has several instances of the same peripheral, to control more pins. Each pin can be configured independent. </p>
 <div class="admonition note">
-<p class="admonition-title">Microchip SAM</p>
-<p>Microchip SAM microcontrollers called this as PIO, each instance of the 
-PIO is called PIO <strong>A</strong>, PIO <strong>B</strong>, PIO <strong>C</strong>, ... each PIO can controll up
-to 32 independents pins.</p>
+<p class="admonition-title">references</p>
+<ul>
+<li>internal reference</li>
+<li>external reference</li>
+</ul>
 </div>
+<ol>
+<li>Long sensor explanation </li>
+<li>How to read the sensor?</li>
+<li>Peripherals use </li>
+</ol>
 <h2 id="hardware">Hardware<a class="headerlink" href="#hardware" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>This examples shows how to control a LED, but can be apply to others digital componentes.</p>
-</blockquote>
+<p>Hardware connection example </p>
+<hr />
 <h2 id="firmware">Firmware<a class="headerlink" href="#firmware" title="Permanent link">&para;</a></h2>
-<p>Steps to simple control a PIO pin:</p>
+<p>Steps to read a simple digital data:</p>
 <ol>
 <li>Enable system clock/ board configs.</li>
 <li>Enable the peripheral</li>
-<li>Configure the Pin as output</li>
-<li>Write to pin</li>
+<li>Configure on the peripheral:<ul>
+<li>Pin as input</li>
+<li>As need: Pull-Up/ Pull-Down</li>
+</ul>
+</li>
+<li>Read the data</li>
 </ol>
-<h3 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>
+<h3 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h3>
+<div class="tabbed-set" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Microchip SAME70</label><div class="tabbed-content">
+<p>Firmware example for SAME70 with internal Pull-Up to read a push button connected to the pin <code>PA11</code>.</p>
+</div>
+<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">mbed</label><div class="tabbed-content">
+<p>Example for mbed with internal Pull-Up to read a push button connected to the pin <code>SW2</code>.</p>
+<ul>
+<li>Reference: <a href="https://os.mbed.com/docs/mbed-os/v6.2/apis/digitalin.html">https://os.mbed.com/docs/mbed-os/v6.2/apis/digitalin.html</a></li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&quot;mbed.h&quot;</span><span class="cp"></span>
+
+<span class="n">DigitalIn</span>  <span class="nf">but_pin</span><span class="p">(</span><span class="n">SW2</span><span class="p">);</span> <span class="c1">// change this to the button on your board</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="c1">// check mypin object is initialized and connected to a pin</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">but_pin</span><span class="p">.</span><span class="n">is_connected</span><span class="p">())</span> <span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;mypin is connected and initialized! </span><span class="se">\n\r</span><span class="s">&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="n">but_pin</span><span class="p">.</span><span class="n">mode</span><span class="p">(</span><span class="n">PullUp</span><span class="p">);</span>
+
+    <span class="k">while</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">but_pin</span><span class="p">.</span><span class="n">read</span><span class="p">())</span> <span class="p">{</span>
+            <span class="c1">// button not pressed</span>
+        <span class="k">else</span> <span class="p">{</span>
+            <span class="c1">// button pressed</span>
+        <span class="p">}</span>
+
+        <span class="n">ThisThread</span><span class="o">::</span><span class="n">sleep_for</span><span class="p">(</span><span class="mi">250</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div>
+
+</div>
+<input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><label for="__tabbed_1_3">Arduino</label><div class="tabbed-content">
+<p>Example for arduino with internal Pull-Up to read a push button connected to the pin <code>7</code>.</p>
+<p>Referece: <a href="https://www.arduino.cc/en/Reference/DigitalRead&amp;usg=ALkJrhirTmK1">https://www.arduino.cc/en/Reference/DigitalRead&amp;usg=ALkJrhirTmK1</a>...</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// pushbutton connected to digital pin 7</span>
+<span class="kt">int</span> <span class="n">inPin</span> <span class="o">=</span> <span class="mi">7</span><span class="p">;</span>    
+
+<span class="kt">void</span> <span class="nf">setup</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// sets the digital pin 7 as input</span>
+    <span class="n">pinMode</span><span class="p">(</span><span class="n">inPin</span><span class="p">,</span> <span class="n">INPUT_PULLUP</span><span class="p">);</span>    
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">loop</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">digitalRead</span><span class="p">(</span><span class="n">inPin</span><span class="p">))</span> <span class="p">{</span>
+        <span class="c1">// button not pressed</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="c1">// button pressed</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+</div>
+</div>
                 
               
               

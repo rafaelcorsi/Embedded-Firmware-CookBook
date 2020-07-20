@@ -9,7 +9,7 @@
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
       
-        <link rel="canonical" href="https://rafaelcorsi.github.io/Embedded-Firmware-CookBook/misc/digital-input-pooling/">
+        <link rel="canonical" href="https://rafaelcorsi.github.io/Embedded-Firmware-CookBook/sensors/hc-sr04/">
       
       
       <link rel="shortcut icon" href="../../assets/images/favicon.png">
@@ -17,7 +17,7 @@
     
     
       
-        <title>Digital Input - Pooling - Embedded System - Cook Book</title>
+        <title>HC SR04 - Embedded System - Cook Book</title>
       
     
     
@@ -50,7 +50,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#digital-input-pooling" class="md-skip">
+        <a href="#hc-sr04" class="md-skip">
           Skip to content
         </a>
       
@@ -78,7 +78,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              Digital Input - Pooling
+              HC SR04
             
           </span>
         </div>
@@ -188,12 +188,10 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
     
     <label class="md-nav__link" for="nav-2">
       Misc
@@ -215,6 +213,74 @@
           
           
 
+
+  <li class="md-nav__item">
+    <a href="../../misc/digital-input-pooling/" title="Digital Input - Pooling" class="md-nav__link">
+      Digital Input - Pooling
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../misc/digital-input-irq/" title="Digital Input - IRQ" class="md-nav__link">
+      Digital Input - IRQ
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../misc/digital-output/" title="Digital Output" class="md-nav__link">
+      Digital Output
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+    
+    <label class="md-nav__link" for="nav-3">
+      Sensors
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Sensors" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        Sensors
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
   
 
 
@@ -226,14 +292,14 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        Digital Input - Pooling
+        HC SR04
         <span class="md-nav__icon md-icon">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3,9H17V7H3V9M3,13H17V11H3V13M3,17H17V15H3V17M19,17H21V15H19V17M19,7V9H21V7H19M19,13H21V11H19V13Z" /></svg>
         </span>
       </label>
     
-    <a href="./" title="Digital Input - Pooling" class="md-nav__link md-nav__link--active">
-      Digital Input - Pooling
+    <a href="./" title="HC SR04" class="md-nav__link md-nav__link--active">
+      HC SR04
     </a>
     
       
@@ -263,91 +329,12 @@
     Firmware
   </a>
   
-    <nav class="md-nav" aria-label="Firmware">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    Code
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
     </ul>
   
 </nav>
     
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../digital-input-irq/" title="Digital Input - IRQ" class="md-nav__link">
-      Digital Input - IRQ
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../digital-output/" title="Digital Output" class="md-nav__link">
-      Digital Output
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
-    
-    <label class="md-nav__link" for="nav-3">
-      Sensors
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
-      </span>
-    </label>
-    <nav class="md-nav" aria-label="Sensors" data-md-level="1">
-      <label class="md-nav__title" for="nav-3">
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
-        </span>
-        Sensors
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../sensors/hc-sr04/" title="HC SR04" class="md-nav__link">
-      HC SR04
-    </a>
   </li>
 
         
@@ -393,19 +380,6 @@
     Firmware
   </a>
   
-    <nav class="md-nav" aria-label="Firmware">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    Code
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
     </ul>
@@ -420,7 +394,7 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/rafaelcorsi/Embedded-Firmware-CookBook/edit/master/docs-src/misc/digital-input-pooling.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/rafaelcorsi/Embedded-Firmware-CookBook/edit/master/docs-src/sensors/hc-sr04.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.12,5.12L18.87,8.87M3,17.25V21H6.75L17.81,9.93L14.06,6.18L3,17.25Z" /></svg>
                   </a>
                 
@@ -428,139 +402,170 @@
                   
                 
                 
-                <h1 id="digital-input-pooling">Digital Input - Pooling<a class="headerlink" href="#digital-input-pooling" title="Permanent link">&para;</a></h1>
-<p>Digital input output (I/O) is the most simple way to <strong>read</strong> from external world. This signal can assume only two states: On/OFF, <code>1</code>/<code>0</code>, <code>High</code>/ <code>Low</code>.</p>
+                <h1 id="hc-sr04">HC SR04<a class="headerlink" href="#hc-sr04" title="Permanent link">&para;</a></h1>
+<p>Ultrasonic sonar distance sensor with resolution from 2 cm to 400 cm with a max accuracy of 3 mm.</p>
 <div class="admonition tip">
-<p class="admonition-title">most common uses</p>
+<p class="admonition-title">Common uses</p>
 <ul>
-<li>Buttons (push/ slider/ dip switch)</li>
-<li>Signal pulse (encoder)</li>
-<li>...</li>
+<li>Robotics (object detection, distance calculation)</li>
+<li>Presence detection </li>
 </ul>
 </div>
-<p>The peripheral that allows us to read a digital value is common named:</p>
-<ul>
-<li><img alt="➡️" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/svg/27a1.svg" title=":arrow_right:" /> Parallel I/O - PIO</li>
-<li>General-Purpose I/O - GPIO</li>
-</ul>
-<p>Normally this peripherals controls more than one pin and each microcontroller has several instances of the same peripheral, to control more pins. Each pin can be configured independent. </p>
 <div class="admonition note">
-<p class="admonition-title">Microchip SAM</p>
-<p>Microchip SAM microcontrollers called this as PIO, each instance of the 
-PIO is called PIO <strong>A</strong>, PIO <strong>B</strong>, PIO <strong>C</strong>, ... each PIO can controll up
-to 32 independents pins.</p>
+<p class="admonition-title">References</p>
+<ul>
+<li><img alt="⭐️" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/svg/2b50.svg" title=":star:" /> <a href="https://cdn.sparkfun.com/datasheets/Sensors/Proximity/HCSR04.pdf">datasheet</a></li>
+<li><a href="https://www.sparkfun.com/products/15569">https://www.sparkfun.com/products/15569</a></li>
+<li><a href="https://www.adafruit.com/product/3942">https://www.adafruit.com/product/3942</a></li>
+<li><a href="https://create.arduino.cc/projecthub/projects/tags/ultrasonic">https://create.arduino.cc/projecthub/projects/tags/ultrasonic</a></li>
+</ul>
 </div>
-<h2 id="hardware">Hardware<a class="headerlink" href="#hardware" title="Permanent link">&para;</a></h2>
+<p>When request by the <code>trigger pin</code>, the sensor send a ultrasonic train pulse (8 pulses at 40 Khz) over it speaker and waiting to receive the sound on microphone, the sensor than returns the time that the pulse took to travel on the <code>echo</code> pin, knowing the sound velocity (350 m/s) is possible to calculate the object distance:</p>
+<p><span><span class="MathJax_Preview">object distance (m) = time * 350 / 2</span><script type="math/tex">object distance (m) = time * 350 / 2</script></span></p>
 <blockquote>
-<p>This examples shows how to read a button, but can be applied to others digital components.</p>
+<p>note: The sensor returns the total travel time, so it is necessary to divide the distance by 2.</p>
 </blockquote>
-<p>There is two-way to use a button: with Pull-Up or Pull-Down. Most peripherals allow to enable a internal Pull-UP/Pull-Down resistor, with no need to connect resistors to the uC.</p>
-<div class="tabbed-set" data-tabs="1:4"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Internal Pull-Up</label><div class="tabbed-content">
-<p><img alt="" src="../figs/digital-input/internal-pullup.svg.png" width="350" /></p>
-<p><img alt="⭐️" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/svg/2b50.svg" title=":star:" /> Best solution (reduces the risk of burning, uses fewer components)</p>
-<p>Setup:</p>
+<p>The sensor has the fallowing interfaces/pins:</p>
 <ul>
-<li>Connect button to pin and to gnd</li>
-<li>Need to configure <strong>Pull-Up</strong> on the peripheral.</li>
-<li><strong>No need to external resistor</strong></li>
+<li><strong>VCC</strong>: 5V</li>
+<li><strong>GND</strong>: Ground</li>
+<li><strong>IN</strong> <code>Trigger</code>: uC sends a 10us pulse to start a new range measurement </li>
+<li><strong>OUT</strong> Echo: Is a pulse sent by the sensor that has width proportional to the time </li>
 </ul>
-<p>Read <code>1</code> when not pressed and <code>0</code> when pressed.</p>
-</div>
-<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">External Pull-Up</label><div class="tabbed-content">
-<p><img alt="" src="../figs/digital-input/external-pullup.svg.png" width="350" /></p>
-<p>Setup:</p>
+<h2 id="hardware">Hardware<a class="headerlink" href="#hardware" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Connect button to pin and to gnd</li>
-<li>Add a parallel resistor to VCC <ul>
-<li>must respect max pin voltage</li>
+<li><strong>pin x</strong>: Microcontroller Input</li>
+<li><strong>pin y</strong>: Microcontroller Output</li>
 </ul>
-</li>
-</ul>
-<p>Read <code>1</code> when not pressed and <code>0</code> when pressed.</p>
+<p><img alt="" src="../figs/hc-sr04.svg.png" width="500" /></p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<ul>
-<li>You must respect the VCC of your system.</li>
-</ul>
+<p>This sensor has a 5V interface, on this schematic we do a voltage division to reach 3.3V on the input pin, please check you uC values.</p>
 </div>
-</div>
-<input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><label for="__tabbed_1_3">Internal Pull-Down</label><div class="tabbed-content">
-<p>TODO</p>
-<p>Read <code>0</code> when not pressed and <code>1</code> when pressed.</p>
-</div>
-<input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><label for="__tabbed_1_4">External Pull-Down</label><div class="tabbed-content">
-<p>TODO</p>
-<p>Read <code>0</code> when not pressed and <code>1</code> when pressed.</p>
-</div>
-</div>
-<hr />
 <h2 id="firmware">Firmware<a class="headerlink" href="#firmware" title="Permanent link">&para;</a></h2>
-<p>Steps to read a simple digital data:</p>
-<ol>
-<li>Enable system clock/ board configs.</li>
-<li>Enable the peripheral</li>
-<li>Configure on the peripheral:<ul>
-<li>Pin as input</li>
-<li>As need: Pull-Up/ Pull-Down</li>
-</ul>
-</li>
-<li>Read the data</li>
-</ol>
-<h3 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h3>
-<div class="tabbed-set" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">Microchip SAME70</label><div class="tabbed-content">
-<p>Firmware example for SAME70 with internal Pull-Up to read a push button connected to the pin <code>PA11</code>.</p>
-</div>
-<input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><label for="__tabbed_2_2">mbed</label><div class="tabbed-content">
-<p>Example for mbed with internal Pull-Up to read a push button connected to the pin <code>SW2</code>.</p>
+<p>You must configure:</p>
 <ul>
-<li>Reference: <a href="https://os.mbed.com/docs/mbed-os/v6.2/apis/digitalin.html">https://os.mbed.com/docs/mbed-os/v6.2/apis/digitalin.html</a></li>
+<li>The pin that is connected to the <code>Trigger</code> as <strong>digital output</strong> (pin y).</li>
+<li>the pin that is connected to the <code>Echo</code> as <strong>digital input</strong> (pin x)</li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&quot;mbed.h&quot;</span><span class="cp"></span>
+<p>There are several ways to interface with this sensor, it can be done only by software or by using time peripherals. Using peripherals to count time allows the firmware to perform more actions besides interact with the sensor and increase system resolution, this is a most go if the system wants to read more than one sensor at the same time. </p>
+<div class="tabbed-set" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">bare metal - no extra timer counter</label><div class="tabbed-content">
+<ol>
+<li>Configure Trigger and Echo pins respective as output and input</li>
+<li>Configure core delay function</li>
+<li>To start a new measurement generate a 10us pulse on the <code>Trigger</code> pin</li>
+<li>Do a while on the <code>Echo</code> pin waiting it to get <code>High</code></li>
+<li>Do a while on the <code>Echo</code> pin waiting it to get <code>low</code>:</li>
+<li>add a nano seccond delay on the while</li>
+<li>count the cycles </li>
+<li>With the count we can calculate the time and then the distance</li>
+</ol>
+<p>Pins used on this example:</p>
+<ul>
+<li><code>PC8</code>: Trigger</li>
+<li><code>PD20</code>: Echo</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="c1">// Trigger pin</span>
+<span class="cp">#define TRIG_PIO      PIOC</span>
+<span class="cp">#define TRIG_PIO_ID   ID_PIOC</span>
+<span class="cp">#define TRIG_IDX      8</span>
+<span class="cp">#define TRIG_IDX_MASK (1 &lt;&lt; TRIG_IDX)</span>
 
-<span class="n">DigitalIn</span>  <span class="nf">but_pin</span><span class="p">(</span><span class="n">SW2</span><span class="p">);</span> <span class="c1">// change this to the button on your board</span>
+<span class="c1">// Echo pin</span>
+<span class="cp">#define ECHO_PIO      PIOD</span>
+<span class="cp">#define ECHO_PIO_ID   ID_PIOD</span>
+<span class="cp">#define ECHO_IDX      20</span>
+<span class="cp">#define ECHO_IDX_MASK (1 &lt;&lt; ECHO_IDX)</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="c1">// check mypin object is initialized and connected to a pin</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">but_pin</span><span class="p">.</span><span class="n">is_connected</span><span class="p">())</span> <span class="p">{</span>
-        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;mypin is connected and initialized! </span><span class="se">\n\r</span><span class="s">&quot;</span><span class="p">);</span>
-    <span class="p">}</span>
+<span class="cp">#define SOUND_VEL 350</span>
 
-    <span class="n">but_pin</span><span class="p">.</span><span class="n">mode</span><span class="p">(</span><span class="n">PullUp</span><span class="p">);</span>
+<span class="kt">void</span> <span class="nf">hcsr04_init</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{...};</span>
 
-    <span class="k">while</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">but_pin</span><span class="p">.</span><span class="n">read</span><span class="p">())</span> <span class="p">{</span>
-            <span class="c1">// button not pressed</span>
-        <span class="k">else</span> <span class="p">{</span>
-            <span class="c1">// button pressed</span>
+<span class="kt">void</span> <span class="nf">hcsr04_trig</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">pio_set</span> <span class="p">(</span><span class="n">TRIG_PIO</span><span class="p">,</span> <span class="n">TRIG_IDX_MASK</span><span class="p">);</span>
+    <span class="n">delay_us</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+    <span class="n">pio_clear</span> <span class="p">(</span><span class="n">TRIG_PIO</span><span class="p">,</span> <span class="n">TRIG_IDX_MASK</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">main</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// init system </span>
+    <span class="n">sysclk_init</span> <span class="p">();</span>
+    <span class="c1">// sensor pins init</span>
+    <span class="n">hcsr04_init</span> <span class="p">();</span>    
+    <span class="c1">// init delay</span>
+    <span class="n">delay_init</span> <span class="p">(</span><span class="n">sysclk_get_cpu_hz</span> <span class="p">());</span>
+
+    <span class="k">while</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span> 
+        <span class="c1">// start measurement  </span>
+        <span class="n">hcsr04_trig</span><span class="p">();</span>
+
+        <span class="c1">// wait for pulse init</span>
+        <span class="k">while</span> <span class="p">(</span><span class="n">pio_get</span> <span class="p">(</span><span class="n">ECHO_PIN</span><span class="p">,</span> <span class="n">PIO_INPUT</span><span class="p">,</span> <span class="n">ECHO_IDX_MASK</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{}</span>
+
+        <span class="c1">// pulse has started</span>
+        <span class="n">unit32_t</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="k">while</span> <span class="p">(</span><span class="n">pio_get</span> <span class="p">(</span><span class="n">ECHO_PIN</span><span class="p">,</span> <span class="n">PIO_INPUT</span><span class="p">,</span> <span class="n">ECHO_IDX_MASK</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">delay_us</span> <span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+            <span class="n">count</span><span class="o">++</span><span class="p">;</span>
         <span class="p">}</span>
 
-        <span class="n">ThisThread</span><span class="o">::</span><span class="n">sleep_for</span><span class="p">(</span><span class="mi">250</span><span class="p">);</span>
+        <span class="c1">// delay is microsecond </span>
+        <span class="kt">float</span> <span class="n">time</span>  <span class="o">=</span> <span class="n">count</span> <span class="o">*</span> <span class="mf">0.0001</span><span class="p">;</span> 
+        <span class="kt">uint32_t</span> <span class="n">distance</span> <span class="o">=</span> <span class="n">time</span> <span class="o">*</span> <span class="n">SOUND_VEL</span> <span class="o">/</span> <span class="mf">2.0</span><span class="p">;</span>
+
+        <span class="c1">// delay for a new mes</span>
+        <span class="n">delay_ms</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
     <span class="p">}</span>
 <span class="p">}</span>
+</code></pre></div>
+
+<div class="admonition info">
+<p class="admonition-title">Resolution</p>
+<p>Usually vendors software framework wouldn't provide software delay for a period less than 
+nano second. </p>
+<p>The resolution of this code is limited to the <code>delay_us(1)</code> used to calculate 
+the pulse time. This implies in a resolution of 17.5 mm in distance that is higher than the resolution
+of sensor (3 mm).</p>
+<p>Solutions:</p>
+<ul>
+<li>Use a lower delay (can be done by nasm)</li>
+<li>Use systick to calculate time</li>
+<li><img alt="⭐️" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/svg/2b50.svg" title=":star:" /> Use timercounter peripheral to count time </li>
+</ul>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Timeout</p>
+<p>This implementation don't have timeout on the echo signal, some time the sensor won`t
+generate an echo pulse and that could lead the firmware to be stuck.</p>
+<p>Solutions:</p>
+<ul>
+<li>Add a software timeout on both <code>while</code></li>
+<li>Use systick to timeout </li>
+<li><img alt="⭐️" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/svg/2b50.svg" title=":star:" /> Use an RTOS that has timeout mechanisms </li>
+</ul>
+<p>Example on how to do by software:</p>
+<div class="highlight"><pre><span></span><code><span class="gi">+#define TIMEOUT_US 100</span>
+
+// wait for pulse init
+<span class="gi">+uint8_t timeout = 0; </span>
+<span class="gi">+uint32_t timeout_count = 0;</span>
+
+while (pio_get (ECHO_PIN, PIO_INPUT, ECHO_IDX_MASK) == 0) {
+<span class="gi">+    if (timeout_count++ &gt; TIMEOUT_US) {</span>
+<span class="gi">+       timeout = 1;</span>
+<span class="gi">+       break;  </span>
+<span class="gi">+    }</span>
+<span class="gi">+    </span>
+<span class="gi">+    delay_us(1);</span>
+}
+
+<span class="gi">+if (timeout == 0) { </span>
+    while (pio_get (ECHO_PIN, PIO_INPUT, ECHO_IDX_MASK) == 1) {
+    ....
+<span class="gi">+}</span>
 </code></pre></div>
 
 </div>
-<input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><label for="__tabbed_2_3">Arduino</label><div class="tabbed-content">
-<p>Example for arduino with internal Pull-Up to read a push button connected to the pin <code>7</code>.</p>
-<p>Referece: <a href="https://www.arduino.cc/en/Reference/DigitalRead&amp;usg=ALkJrhirTmK1">https://www.arduino.cc/en/Reference/DigitalRead&amp;usg=ALkJrhirTmK1</a>...</p>
-<div class="highlight"><pre><span></span><code><span class="c1">// pushbutton connected to digital pin 7</span>
-<span class="kt">int</span> <span class="n">inPin</span> <span class="o">=</span> <span class="mi">7</span><span class="p">;</span>    
-
-<span class="kt">void</span> <span class="nf">setup</span> <span class="p">()</span> <span class="p">{</span>
-    <span class="c1">// sets the digital pin 7 as input</span>
-    <span class="n">pinMode</span><span class="p">(</span><span class="n">inPin</span><span class="p">,</span> <span class="n">INPUT_PULLUP</span><span class="p">);</span>    
-<span class="p">}</span>
-
-<span class="kt">void</span> <span class="nf">loop</span> <span class="p">()</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">digitalRead</span><span class="p">(</span><span class="n">inPin</span><span class="p">))</span> <span class="p">{</span>
-        <span class="c1">// button not pressed</span>
-    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-        <span class="c1">// button pressed</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-
 </div>
 </div>
                 
@@ -581,7 +586,7 @@ to 32 independents pins.</p>
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../.." title="Home" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../../misc/digital-output/" title="Digital Output" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
             </div>
@@ -590,25 +595,11 @@ to 32 independents pins.</p>
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Home
+                Digital Output
               </div>
             </div>
           </a>
         
-        
-          <a href="../digital-input-irq/" title="Digital Input - IRQ" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-footer-nav__title">
-              <div class="md-ellipsis">
-                <span class="md-footer-nav__direction">
-                  Next
-                </span>
-                Digital Input - IRQ
-              </div>
-            </div>
-            <div class="md-footer-nav__button md-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z" /></svg>
-            </div>
-          </a>
         
       </nav>
     </div>

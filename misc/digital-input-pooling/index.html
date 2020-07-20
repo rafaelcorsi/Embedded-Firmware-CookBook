@@ -509,6 +509,30 @@ to 32 independents pins.</p>
 <h3 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h3>
 <div class="tabbed-set" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">Microchip SAME70</label><div class="tabbed-content">
 <p>Firmware example for SAME70 with internal Pull-Up to read a push button connected to the pin <code>PA11</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="cp">#define BUT_PIO      PIOA</span>
+<span class="cp">#define BUT_PIO_ID   ID_PIOA</span>
+<span class="cp">#define BUT_IDX      11</span>
+<span class="cp">#define BUT_IDX_MASK (1 &lt;&lt; BUT_IDX)</span>
+<span class="cp">#define BUT_SETTINGS PIO_PULLUP</span>
+
+<span class="kt">int</span> <span class="nf">main</span> <span class="p">(</span><span class="kt">void</span><span class="p">){</span>
+    <span class="c1">// init system </span>
+    <span class="n">sysclk_init</span><span class="p">();</span>
+
+    <span class="c1">// enable and configure peripheral</span>
+    <span class="n">pmc_enable_periph_clk</span> <span class="p">(</span><span class="n">BUT_PIO_ID</span><span class="p">);</span>
+    <span class="n">pio_configure</span> <span class="p">(</span><span class="n">BUT_PIO</span><span class="p">,</span> <span class="n">PIO_INPUT</span><span class="p">,</span> <span class="n">BUT_IDX_MASK</span><span class="p">,</span> <span class="n">BUT_SETTINGS</span><span class="p">);</span>
+
+    <span class="k">while</span> <span class="p">(</span><span class="mi">1</span><span class="p">){</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">pio_get</span> <span class="p">(</span><span class="n">BUT_PIO</span><span class="p">,</span> <span class="n">PIO_INPUT</span><span class="p">,</span> <span class="n">BUT_IDX_MASK</span><span class="p">))</span> <span class="p">{</span>
+            <span class="c1">// button not pressed</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="c1">// button pressed</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
 </div>
 <input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><label for="__tabbed_2_2">mbed</label><div class="tabbed-content">
 <p>Example for mbed with internal Pull-Up to read a push button connected to the pin <code>SW2</code>.</p>
